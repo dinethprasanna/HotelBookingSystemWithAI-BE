@@ -5,7 +5,7 @@ import {
     addNewHotel,
     deleteHotel,
     updateHotel,
-    generateResponse,
+    // generateResponse,
 } from "../application/hotel";
 
 import { isAuthenticated } from './middlewares/authentication-middleware';
