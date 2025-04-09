@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "dev": "src/index.ts",
+    "dev": "nodemon src/index.ts",
     "start": "ts-node src/index.ts"
   },
   "author": "dineth",
