@@ -23,7 +23,8 @@ app.use((0, express_2.clerkMiddleware)());
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 (0, db_1.default)();
-app.use((0, cors_1.default)({ origin: process.env.FRONTEND_URL }));
+// app.use(cors({ origin: process.env.FRONTEND_URL }));
+app.use((0, cors_1.default)({ origin: "https://hotel-booking-system-with-ai-fe.vercel.app" }));
 app.post("/api/stripe/webhook", body_parser_1.default.raw({ type: "application/json" }), payment_1.handleWebhook);
 //middleware test - pre middleware
 // app.use((req, res, next) => {
