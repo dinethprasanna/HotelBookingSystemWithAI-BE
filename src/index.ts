@@ -17,17 +17,45 @@ import paymentsRouter from "./api/payment";
 //mongodb+srv://dinethprasanna58:<db_password>@dinsfirstmogodb.rklzk.mongodb.net/?retryWrites=true&w=majority&appName=DinsFirstMogoDB
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = 8080;
 
 app.use(clerkMiddleware());
 
 app.use(express.json());
+app.use(cors());
 
-app.use(globalErrorHandlingMiddleware);
 connectDB();
 
+// app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(cors({ origin: "https://hotel-booking-system-with-ai-fe.vercel.app" }));
 
+app.post(
+  "/api/stripe/webhook",
+  bodyParser.raw({ type: "application/json" }),
+  handleWebhook
+);
+
+//middleware test - pre middleware
+// app.use((req, res, next) => {
+//     console.log("Test Middleware Log");
+//     next();
+// });
+
+
+//Default route
+app.get("/", (req, res) => {
+    // console.log(req.ip);
+    res.status(200).send("Dins Hotel Booking BE");
+});
+
+
+app.use("/api/hotels", hotelRouter);
+app.use("/api/bookings", bookingRouter);
+app.use("/api/payments", paymentsRouter);
+
+
+//global-error-handling post middleware
+app.use(globalErrorHandlingMiddleware);
 
 app.listen(port, () => {
     console.log(`Dins Hotel Booking BE - Server runs on port ${port}`);
