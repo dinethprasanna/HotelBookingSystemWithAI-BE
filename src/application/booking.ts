@@ -116,10 +116,12 @@ export const getAllBookingsForUser = async (
 ) => {
   try {
     updateBookingStatus();
-    const userId = req.auth?.userId; // Get user ID from Clerk authentication
+    const userId = req.params.userId;
+ // Get user ID from Clerk authentication
 
     if (!userId) {
-      return res.status(401).json({ message: "Unauthorized" });
+      res.status(401).json({ message: "Unauthorized" });
+      return
     }
 
     const bookings = await Booking.find({ userId: userId });
