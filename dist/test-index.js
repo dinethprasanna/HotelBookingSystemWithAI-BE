@@ -44,4 +44,4 @@ app.use(global_error_handling_middleware_1.default);
 app.listen(port, function () {
     console.log("Dins Hotel Booking BE - Server runs on port ".concat(port));
 });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=test-index.js.map
