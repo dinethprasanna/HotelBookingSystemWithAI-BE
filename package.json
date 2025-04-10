@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "dev": "nodemon src/api/index.ts",
+    "dev": "nodemon src/index.ts",
     "build": "npm install && tsc",
-    "start": "node ./dist/api/index.js"
+    "start": "ts-node src/index.ts",
+    "vercel-build": "echo hello"
   },
   "author": "dineth",
   "license": "ISC",

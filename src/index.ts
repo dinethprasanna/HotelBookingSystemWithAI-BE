@@ -3,14 +3,14 @@ import "dotenv/config";
 
 import express from "express";
 import cors from "cors";
-import hotelRouter from "./hotel";
-import bookingRouter from "./booking";
-import connectDB from '../infrastructure/db';
-import globalErrorHandlingMiddleware from "./middlewares/global-error-handling-middleware";
+import hotelRouter from "./api/hotel";
+import bookingRouter from "./api/booking";
+import connectDB from './infrastructure/db';
+import globalErrorHandlingMiddleware from "./api/middlewares/global-error-handling-middleware";
 import { clerkMiddleware } from "@clerk/express";
-import { handleWebhook } from "../application/payment";
+import { handleWebhook } from "./application/payment";
 import bodyParser from "body-parser";
-import paymentsRouter from "./payment";
+import paymentsRouter from "./api/payment";
 
 
 //mongodb ps - t2z342Tm2Ua9di0v
@@ -40,6 +40,8 @@ app.post(
 //     console.log("Test Middleware Log");
 //     next();
 // });
+
+//https://www.youtube.com/watch?v=B-T69_VP2Ls
 
 
 //Default route
