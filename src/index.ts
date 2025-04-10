@@ -62,3 +62,6 @@ app.use(globalErrorHandlingMiddleware);
 app.listen(port, () => {
     console.log(`Dins Hotel Booking BE - Server runs on port ${port}`);
 });
+
+
+export default app;
