@@ -26,8 +26,8 @@ app.use(cors());
 
 connectDB();
 
-// app.use(cors({ origin: process.env.FRONTEND_URL }));
-app.use(cors({ origin: "https://hotel-booking-system-with-ai-fe.vercel.app" }));
+app.use(cors({ origin: process.env.FRONTEND_URL }));
+// app.use(cors({ origin: "https://hotel-booking-system-with-ai-fe.vercel.app" }));
 
 app.post(
   "/api/stripe/webhook",
